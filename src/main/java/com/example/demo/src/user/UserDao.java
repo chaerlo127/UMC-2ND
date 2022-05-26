@@ -131,7 +131,7 @@ public class UserDao {
 
 
     public int deleteUser(DeleteUserReq deleteUserReq) {
-        String deleteUserQuery = "delete from User where userIdx = ?";
+        String deleteUserQuery = "update User set status = 'inactive' where userIdx = ? ";
         Object[] deleteUserParams = new Object[]{deleteUserReq.getUserIdx()};
         return this.jdbcTemplate.update(deleteUserQuery, deleteUserParams);
     }

@@ -48,8 +48,16 @@ public class PostProvider {
     }
 
     public int checkUserExist(int userIdx) throws BaseException{
+                try{
+                    return postDao.checkUserExist(userIdx);
+                } catch (Exception exception){
+                    throw new BaseException(DATABASE_ERROR);
+                }
+    }
+
+    public int checkPostExist(int postIdx) throws BaseException{
         try{
-            return postDao.checkUserExist(userIdx);
+            return postDao.checkPostExist(postIdx);
         } catch (Exception exception){
             throw new BaseException(DATABASE_ERROR);
         }
